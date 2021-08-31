@@ -33,3 +33,11 @@ Each topic has associated partitions. Kafka saves messages sequentially to disk!
 
 ![Shows that a message has 4 fields: Headers, Key, Value and Timestamp](./images/kafka-message-registry.png)
 
+## Partition leadership
+
+When you have Replication Factor greater than 1, Kafka will elect one of the partition replicas as the leader. That means the consumers will always read the leader messages.
+
+This is useful because if one broker dies and it has a leader partition, Kafka will elect one of the partition replicas as the new leader.
+
+![Shows multiple brokers with partition replicas and shows one broker with the leader partition](./images/kafka-partition-leadership.png)
+
