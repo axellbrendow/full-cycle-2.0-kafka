@@ -41,3 +41,16 @@ This is useful because if one broker dies and it has a leader partition, Kafka w
 
 ![Shows multiple brokers with partition replicas and shows one broker with the leader partition](./images/kafka-partition-leadership.png)
 
+## Delivery guarantee
+
+Kafka comes with 3 types of message delivery guarantee:
+
+- If you send a message with Ack 0, Kafka will return "None" instantly without delivery guarantee.
+![](./images/kafka-delivery-none.png)
+
+- If you send a message with Ack 1, Kafka will return "Leader" after the message is stored on it.
+![](./images/kafka-delivery-leader.png)
+
+- If you send a message with Ack -1, Kafka will return "All" after the message is stored on the leader and the followers.
+![](./images/kafka-delivery-leader-and-followers.png)
+
