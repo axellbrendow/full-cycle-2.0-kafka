@@ -127,3 +127,26 @@ kafka-console-producer --bootstrap-server=localhost:9092 --topic=teste
 
 ![](./images/kafka-consuming-topic.gif)
 
+## Putting consumers in the same group
+
+If consumers are in the same group, they read different partitions of the same topic
+
+![](./images/kafka-consumer-groups.gif)
+
+To describe the consumer group, run:
+
+```sh
+kafka-consumer-groups --bootstrap-server=localhost:9092 --group=x --describe
+```
+
+The output should be similar to:
+
+```
+GROUP           TOPIC           PARTITION  CURRENT-OFFSET  LOG-END-OFFSET  LAG             CONSUMER-ID                                       HOST            CLIENT-ID
+x               teste           0          4               4               0               consumer-x-1-60e8ebe6-2814-4ec9-b5cd-b2283ce42ee3 /172.25.0.3     consumer-x-1
+x               teste           1          3               3               0               consumer-x-1-60e8ebe6-2814-4ec9-b5cd-b2283ce42ee3 /172.25.0.3     consumer-x-1
+x               teste           2          3               3               0               consumer-x-1-9a4a2b24-859f-4736-98b2-bb1988f90b3a /172.25.0.3     consumer-x-1
+```
+
+The Consumer IDs of the first two lines are equal (consumer-x-1-60e8ebe6-2814-4ec9-b5cd-b2283ce42ee3), so, the same consumer is reading from partition 0 and 1
+
