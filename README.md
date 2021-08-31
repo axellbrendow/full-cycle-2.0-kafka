@@ -24,3 +24,12 @@ Each topic has associated partitions. Kafka saves messages sequentially to disk!
 
 ![Shows that a partition of a kafka topic is like an array of messages](./images/kafka-partition.png)
 
+## Message structure
+
+- Headers are metadata you can include in the message
+- Key is used to send the same type of messages to the same partition
+- Value is the payload itself
+- Timestamp can be set by the producer or the kafka cluster when the message arrive
+
+![Shows that a message has 4 fields: Headers, Key, Value and Timestamp](./images/kafka-message-registry.png)
+
