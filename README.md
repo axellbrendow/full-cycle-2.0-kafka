@@ -46,12 +46,15 @@ This is useful because if one broker dies and it has a leader partition, Kafka w
 Kafka comes with 3 types of message delivery guarantee:
 
 - If you send a message with Ack 0, Kafka will return "None" instantly without delivery guarantee.
+
 ![](./images/kafka-delivery-none.png)
 
 - If you send a message with Ack 1, Kafka will return "Leader" after the message is stored on it.
+
 ![](./images/kafka-delivery-leader.png)
 
 - If you send a message with Ack -1, Kafka will return "All" after the message is stored on the leader and the followers.
+
 ![](./images/kafka-delivery-leader-and-followers.png)
 
 ## More about delivery guarantee
@@ -59,12 +62,15 @@ Kafka comes with 3 types of message delivery guarantee:
 Kafka comes with other types of message delivery guarantee:
 
 - "At most once" gives you the best performance but don't guarantee that all messages will be delivered.
+
 ![](./images/kafka-at-most-once.png)
 
 - "At least once" gives you a moderate performance but can delivery two times the same message. So, you need to take care of not processing the same message in your system!
+
 ![](./images/kafka-at-least-once.png)
 
 - "Exactly once" gives you the worst performance but delivery all messages exactly one time.
+
 ![](./images/kafka-exactly-once.png)
 
 ## Producer idempotence
