@@ -73,3 +73,13 @@ If a producer sends a message and it has a connectivity problem, maybe Kafka may
 
 This is a problem because the message will be duplicated. If you say a producer is idempotent, Kafka will notice the situation and discard one of the messages.
 
+## Consumers and consumer groups
+
+If only one consumer is consuming a topic, it will read from all partitions.
+
+![](./images/kafka-consumer.png)
+
+But you can create a group of consumers that read from the same topic. In this way, they divide the partitions between them.
+
+![](./images/kafka-consumer-group.png)
+
