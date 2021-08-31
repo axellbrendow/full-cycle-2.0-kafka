@@ -169,3 +169,12 @@ go run cmd/producer/main.go
 
 All consumer/producer properties: https://github.com/edenhill/librdkafka/blob/master/CONFIGURATION.md
 
+## Run your own consumer in Go
+
+Stop the consumer started with `kafka-console-consumer` and, in another terminal, run:
+
+```sh
+go run cmd/consumer/main.go
+```
+
+If you wanna test with multiple consumers, edit the `client.id` inside `cmd/consumer/main.go` and run another consumer.
