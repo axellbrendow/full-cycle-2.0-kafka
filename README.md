@@ -91,3 +91,39 @@ But you can create a group of consumers that read from the same topic. In this w
 
 ![](./images/kafka-consumer-group.png)
 
+# Practice
+
+## Starting Kafka
+
+```sh
+docker-compose up -d
+# After some minutes, go inside kafka container:
+docker-compose exec kafka bash
+```
+
+## Creating the first topic
+
+```sh
+kafka-topics --bootstrap-server=localhost:9092 --create --topic=teste --partitions=3
+kafka-topics --bootstrap-server=localhost:9092 --list
+kafka-topics --bootstrap-server=localhost:9092 --describe --topic=teste
+```
+
+## Consuming the first topic
+
+```sh
+kafka-console-consumer --bootstrap-server=localhost:9092 --topic=teste
+# Let this terminal open. The consumer is listening to the topic!
+```
+
+## Producing messages in the first topic
+
+Open another terminal and run:
+
+```sh
+kafka-console-producer --bootstrap-server=localhost:9092 --topic=teste
+# This will open a console that you can send messages via keyboard input
+```
+
+![](./images/kafka-consuming-topic.gif)
+
