@@ -150,3 +150,22 @@ x               teste           2          3               3               0    
 
 The Consumer IDs of the first two lines are equal (consumer-x-1-60e8ebe6-2814-4ec9-b5cd-b2283ce42ee3), so, the same consumer is reading from partition 0 and 1
 
+# Doing an implementation in Go
+
+## Create the topic and a consumer for it
+
+```sh
+kafka-topics --bootstrap-server=localhost:9092 --create --topic=goteste --partitions=3
+kafka-console-consumer --bootstrap-server=localhost:9092 --topic=goteste
+```
+
+## Install Go dependencies and run the producer
+
+```sh
+go get github.com/confluentinc/confluent-kafka-go/kafka
+go mod tidy
+go run cmd/producer/main.go
+```
+
+All consumer/producer properties: https://github.com/edenhill/librdkafka/blob/master/CONFIGURATION.md
+
