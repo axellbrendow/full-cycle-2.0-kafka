@@ -71,6 +71,8 @@ Kafka comes with other types of message delivery guarantee:
 
 If a producer sends a message and it has a connectivity problem, maybe Kafka may have received and processed the message but the producer will send the message again when it come back.
 
+![](./images/kafka-producer-idempotence.png)
+
 This is a problem because the message will be duplicated. If you say a producer is idempotent, Kafka will notice the situation and discard one of the messages.
 
 ## Consumers and consumer groups
