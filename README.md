@@ -18,3 +18,9 @@ You can also choose to duplicate the partitions and distribute them along all br
 
 ![Shows that a topic has multiple partitions inside different brokers](./images/kafka-topic-partitions-replication.png)
 
+## Partitions
+
+Each topic has associated partitions. Kafka saves messages sequentially to disk!
+
+![Shows that a partition of a kafka topic is like an array of messages](./images/kafka-partition.png)
+
