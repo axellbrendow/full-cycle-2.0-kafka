@@ -67,3 +67,9 @@ Kafka comes with other types of message delivery guarantee:
 - "Exactly once" gives you the worst performance but delivery all messages exactly one time.
 ![](./images/kafka-exactly-once.png)
 
+## Producer idempotence
+
+If a producer sends a message and it has a connectivity problem, maybe Kafka may have received and processed the message but the producer will send the message again when it come back.
+
+This is a problem because the message will be duplicated. If you say a producer is idempotent, Kafka will notice the situation and discard one of the messages.
+
